@@ -115,7 +115,9 @@
                 <!-- Project 1 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-img" style="background: linear-gradient(45deg, #ff6b6b, #556270);">
+                        <div class="placeholder-img"
+                            style="background: linear-gradient(45deg, #ff6b6b, #556270); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-id-card" style="font-size: 4rem; color: white;"></i>
                         </div>
                     </div>
                     <div class="project-info">
@@ -162,19 +164,26 @@
                 <!-- Project 3 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-img" style="background: linear-gradient(45deg, #f7d794, #556270);">
+                        <div class="placeholder-img"
+                            style="background: linear-gradient(45deg, #f7d794, #556270); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-hotel" style="font-size: 4rem; color: white;"></i>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Tech Blog</h3>
-                        <p>A blog platform to share insights and tutorials on various technology topics.</p>
+                        <h3>Resort Booking</h3>
+                        <p>A user-friendly resort booking platform allowing users to explore accommodations, check
+                            availability, and book their stay seamlessly.</p>
                         <div class="tech-stack">
-                            <span>React</span>
-                            <span>Node.js</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+
                         </div>
                         <div class="project-links">
-                            <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
-                            <a href="#" class="icon-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/athul2200/Azure-Bay---resort" class="icon-link"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://azurebayresort.vercel.app/" class="icon-link"><i
+                                    class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </article>
@@ -219,33 +228,39 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@athulsudheer.com</p>
+                            <p>athulsudheer2007@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+91 98765 43210</p>
+                            <p>+91 9744398012</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fab fa-instagram"></i>
                         <div>
                             <h4>Instagram</h4>
-                            <a href="https://instagram.com" target="_blank">@athulsudheer</a>
+                            <a href="https://www.instagram.com/_athulzz_/" target="_blank">_athulzz_</a>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
+                <!-- Hidden iframe for form submission -->
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                    onload="if(submitted) {window.location='#contact'; showPopup();}"></iframe>
+
+                <form class="contact-form"
+                    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdVOaRtxFpkAUAJntKU6FYuYNPC0e5sTM3apYFa55xqN6Os-w/formResponse"
+                    method="POST" target="hidden_iframe" onsubmit="submitted=true;">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" name="entry.1414505053" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                        <input type="email" name="entry.27233733" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <textarea name="entry.824174170" placeholder="Your Message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -257,12 +272,27 @@
         <div class="footer-content">
             <p>&copy; 2026 Athul Sudheer. All rights reserved.</p>
             <div class="footer-socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/_athulzz_/"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/athul2200"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
+
+    <!-- Use a hidden variable to track submission -->
+    <script>var submitted = false;</script>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+            <button class="btn btn-primary" onclick="closePopup()">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
