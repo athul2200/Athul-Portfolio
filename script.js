@@ -1,57 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Custom Cursor Logic
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
 
-    // State for cursor position
-    let mouseX = 0;
-    let mouseY = 0;
-    let outlineX = 0;
-    let outlineY = 0;
-
-    // Dot follows instantly
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
-
-        // Initial position for outline to prevent jump
-        if (outlineX === 0 && outlineY === 0) {
-            outlineX = mouseX;
-            outlineY = mouseY;
-            cursorOutline.style.left = `${mouseX}px`;
-            cursorOutline.style.top = `${mouseY}px`;
-        }
-    });
-
-    // Smooth animation for outline
-    const animateCursor = () => {
-        const dx = mouseX - outlineX;
-        const dy = mouseY - outlineY;
-
-        outlineX += dx * 0.15; // smooth factor
-        outlineY += dy * 0.15;
-
-        cursorOutline.style.left = `${outlineX}px`;
-        cursorOutline.style.top = `${outlineY}px`;
-
-        requestAnimationFrame(animateCursor);
-    };
-    animateCursor();
-
-    // Hover effect for interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-card, .service-box, input, textarea');
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorOutline.classList.add('hover');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.classList.remove('hover');
-        });
-    });
 
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
